@@ -16,7 +16,8 @@ class StudentSystem:
         if sid in self.students:
             del self.students[sid]
             print("Student deleted")
-        else:
+        else:git add .
+
             print("Student not found")
 
     def update_student(self, sid, name, marks):
