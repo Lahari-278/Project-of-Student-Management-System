@@ -16,7 +16,7 @@ class StudentSystem:
         if sid in self.students:
             del self.students[sid]
             print("Student deleted")
-        else:git add .
+        else:
 
             print("Student not found")
 

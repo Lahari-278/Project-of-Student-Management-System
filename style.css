@@ -1,26 +1,26 @@
 body {
     font-family: Arial;
     text-align: center;
-    background-color: #f4f4f4;
 }
 
-h2 {
-    margin-top: 20px;
+.form input {
+    padding: 8px;
+    margin: 5px;
+}
+
+button {
+    padding: 8px 12px;
+    margin: 5px;
+    cursor: pointer;
 }
 
 table {
     margin: 20px auto;
     border-collapse: collapse;
     width: 60%;
-    background: white;
-}
-
-th {
-    background-color: #333;
-    color: white;
 }
 
 th, td {
-    border: 1px solid #ccc;
+    border: 1px solid black;
     padding: 10px;
 }

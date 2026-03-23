@@ -8,46 +8,65 @@
 
 <h2>Student Management System</h2>
 
-<table>
-<tr>
-<th>ID</th>
-<th>Name</th>
-<th>Marks</th>
-</tr>
+<div class="form">
+    <input type="number" id="sid" placeholder="ID">
+    <input type="text" id="name" placeholder="Name">
+    <input type="number" id="marks" placeholder="Marks">
 
+    <button onclick="addStudent()">Add</button>
+    <button onclick="viewStudents()">View</button>
+</div>
 
-            <tr>
-                <td>101</td>
-                <td>Chandana</td>
-                <td>99.0</td>
-            </tr>
-            
-            <tr>
-                <td>102</td>
-                <td>Bhaskar</td>
-                <td>98.0</td>
-            </tr>
-            
-            <tr>
-                <td>103</td>
-                <td>Lahari</td>
-                <td>89.0</td>
-            </tr>
-            
-            <tr>
-                <td>105</td>
-                <td>Hasini</td>
-                <td>96.0</td>
-            </tr>
-            
-            <tr>
-                <td>107</td>
-                <td>chandu</td>
-                <td>85.0</td>
-            </tr>
-            
-
+<table id="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Marks</th>
+        <th>Action</th>
+    </tr>
 </table>
+
+<script>
+let students = [];
+
+
+function addStudent() {
+    let sid = document.getElementById("sid").value;
+    let name = document.getElementById("name").value;
+    let marks = document.getElementById("marks").value;
+
+    students.push({sid, name, marks});
+
+    alert("Student added!");
+}
+
+function viewStudents() {
+    let table = document.getElementById("table");
+
+    table.innerHTML = `
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Marks</th>
+        <th>Action</th>
+    </tr>`;
+
+    students.forEach((s, index) => {
+        table.innerHTML += `
+        <tr>
+            <td>${s.sid}</td>
+            <td>${s.name}</td>
+            <td>${s.marks}</td>
+            <td><button onclick="deleteStudent(${index})">Delete</button></td>
+        </tr>`;
+    });
+}
+
+function deleteStudent(index) {
+    students.splice(index, 1);
+    viewStudents();
+}
+</script>
 
 </body>
 </html>
